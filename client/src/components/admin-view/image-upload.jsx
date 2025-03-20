@@ -51,7 +51,6 @@ function ProductImageUpload({
       "http://localhost:3000/api/admin/products/upload-image",
       data
     );
-    console.log(response, "response");
 
     if (response?.data?.success) {
       setUploadedImageUrl(response.data.result.url);
@@ -94,7 +93,9 @@ function ProductImageUpload({
             <span>Drag & drop or click to upload image</span>
           </Label>
         ) : imageLoadingState ? (
-          <Skeleton className="h-10 bg-gray-100" />
+          <div className="w-full flex  items-center justify-center">
+          <span className="loader" />
+          </div>
         ) : (
           <div className="flex items-center justify-between">
             <div className="flex items-center">
